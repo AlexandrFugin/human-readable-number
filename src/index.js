@@ -21,18 +21,28 @@ module.exports = function toReadable (number) {
      if (number > 99 && number <= 999) {
       if (number % 100 != 0) {
         let o = hundreds[number.toString()[0]] + ' ' + dozens[number.toString()[1]] + ' ' + units[number.toString()[2]];
-        console.log(o.trim());
-        return o.trim();
+        let qwerty = o.trim();
+        let werty = qwerty.split('  ').join(' ');
+        // console.log(werty);
+        return werty;
       } 
-      else if (Math.trunc(number % 100 / 10) == 1) {
-          // console.log(number[1]);
-          let y = hundreds[number.toString()[0]] + ' ' + dozens[number.toString()[1]];
-        return y;
-      } 
-      else if (Math.trunc(number % 100 / 10) == 0) {
-        let q = hundreds[number.toString()[0]] + ' ' + units[number.toString()[2]];
-        return q;
+      if (number % 100 === 0) {
+        let o = hundreds[number.toString()[0]];
+        let qwerty = o.trim();
+        // let werty = qwerty.split('  ').join(' ');
+        // console.log(qwerty);
+        return qwerty;
       }
+      // if (Math.trunc(number % 100 / 10) == 1) {
+      // //     // console.log(number[1]);
+      //     let y = hundreds[number.toString()[0]] + ' ' + dozens[number.toString()[1]];
+      //     console.log(y);
+      //   return y;
+      // } 
+      // else if (Math.trunc(number % 100 / 10) == 0) {
+      //   let q = hundreds[number.toString()[0]] + ' ' + units[number.toString()[2]];
+      //   return q;
+      // }
     }
 
   // else {
